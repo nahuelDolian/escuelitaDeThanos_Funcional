@@ -89,5 +89,10 @@ quitarTodasSusHabilidades unPersonaje = unPersonaje{habilidades= []}
 elTiempo :: Personaje->Personaje
 elTiempo  = (restarEnergia 50).reducirEdad 
 
-reducirEdad unPersonaje= unPersonaje{edad= ((max 18).(div (edad unPersonaje) 2))}
+reducirEdad unPersonaje= unPersonaje{edad= ((max 18).(div.edad) unPersonaje) 2} --por qué no funciona ésto?
+
+laGemaLoca::(Personaje->Personaje)->Personaje->Personaje
+laGemaLoca unaGema unPersonaje= (unaGema.unaGema) unPersonaje
+
+guanteleteDelPunto4=("Goma",[elTiempo, elAlma "usar Mjolnir", laGemaLoca (elAlma "programacion en Haskell")])
 
